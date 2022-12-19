@@ -1,0 +1,47 @@
+Chapter 2, exercise 1 "Colleges"
+```{r}
+colleges = read.csv("../data/College.csv", na.strings = "?",
+stringsAsFactors = T)
+head(colleges)
+```
+
+```{r}
+dim(colleges)
+```
+
+```{r}
+rownames (colleges) <- colleges[, 1]
+head(colleges)
+```
+```{r}
+colleges <- colleges[, -1]
+head(colleges)
+```
+```{r}
+summary(colleges)
+```
+```{r}
+pairs(colleges[, 1:10])
+```
+
+```{r}
+boxplot(colleges$Outstate ~ colleges$Private, col = c("blue", "green"), main = "Outstate versus Private", 
+    xlab = "Private", ylab = "Outstate")
+```
+```{r}
+Elite <- rep("No", nrow (colleges))
+Elite[colleges$Top10perc > 50] <- " Yes "
+Elite <- as.factor (Elite)
+colleges <- data.frame (colleges, Elite)
+
+summary(colleges["Elite"])
+```
+
+```{r}
+boxplot(colleges$Outstate ~ colleges$Elite,
+        col = c("blue", "green"), 
+        main = "Outstate versus Elite",
+        xlab = "Elite", ylab = "Outstate")
+```
+
+
