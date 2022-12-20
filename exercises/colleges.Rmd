@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 Chapter 2, exercise 1 "Colleges"
 ```{r}
 colleges = read.csv("../data/College.csv", na.strings = "?",
@@ -43,5 +48,3 @@ boxplot(colleges$Outstate ~ colleges$Elite,
         main = "Outstate versus Elite",
         xlab = "Elite", ylab = "Outstate")
 ```
-
-
